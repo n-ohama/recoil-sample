@@ -5,7 +5,10 @@ import {
   QueryDocumentSnapshot,
   collection,
   getDocs,
-  addDoc,
+  setDoc,
+  doc,
+  updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { Todo } from "./types";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -41,5 +44,16 @@ export const fetchData = async () => {
 };
 
 export const addData = async (data: Todo) => {
-  await addDoc(DB, data);
+  const item = doc(FS, DB_NAME, String(data.id));
+  await setDoc(item, data);
+};
+
+export const toggleIsDone = async (todoId: number, current: boolean) => {
+  const item = doc(FS, DB_NAME, String(todoId));
+  await updateDoc(item, { isDone: !current });
+};
+
+export const deleteTodo = async (todoId: number) => {
+  const item = doc(FS, DB_NAME, String(todoId));
+  await deleteDoc(item);
 };

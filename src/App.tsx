@@ -16,6 +16,7 @@ const App = () => {
       isDone: false,
     };
 
+    setInputText("");
     await addData(item);
     resetTodo();
   };
