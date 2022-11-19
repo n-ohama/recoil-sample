@@ -3,7 +3,7 @@ import { useRecoilRefresher_UNSTABLE, useRecoilValue } from "recoil";
 import { deleteTodo, toggleIsDone } from "../global/firebase";
 import { fireTodoState } from "../global/state";
 
-const LazyComponent = () => {
+export const LazyComponent = () => {
   const data = useRecoilValue(fireTodoState);
   const resetTodo = useRecoilRefresher_UNSTABLE(fireTodoState);
 
@@ -39,5 +39,3 @@ const LazyComponent = () => {
     </>
   );
 };
-
-export default LazyComponent;
