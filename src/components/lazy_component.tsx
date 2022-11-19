@@ -2,7 +2,7 @@ import { Button, Checkbox, Flex, Text } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import { fireTodoState } from "../global/state";
 
-const LazyComponent = () => {
+export const LazyComponent = () => {
   const data = useRecoilValue(fireTodoState);
 
   return (
@@ -17,5 +17,3 @@ const LazyComponent = () => {
     </>
   );
 };
-
-export default LazyComponent;

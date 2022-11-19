@@ -1,10 +1,10 @@
 import { Button, Flex, Input } from "@chakra-ui/react";
-import { lazy, Suspense, useState } from "react";
+import { Suspense, useState } from "react";
 import { useRecoilRefresher_UNSTABLE } from "recoil";
 import { addData } from "./global/firebase";
 import { fireTodoState } from "./global/state";
 import { Todo } from "./global/types";
-const LazyComponent = lazy(() => import("./components/lazy_component"));
+import { LazyComponent } from "./components/lazy_component";
 
 const App = () => {
   const [inputText, setInputText] = useState("");
